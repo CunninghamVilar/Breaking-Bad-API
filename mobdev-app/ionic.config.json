@@ -1,0 +1,7 @@
+{
+  "name": "mobdev-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
