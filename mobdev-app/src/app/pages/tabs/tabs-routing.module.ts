@@ -4,44 +4,65 @@ import { Routes, RouterModule } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
-  {
-    path: 'tabs',
-    component: TabsPage,
-    children: [
-      {
-        path: 'characters',
+    {
+        path: 'tabs',
+        component: TabsPage,
         children: [
-          {
-            path: '',
-            loadChildren: () => import('../characters/characters.module').then( m => m.CharactersPageModule)
-          },
-          {
-            path: ':id',
-            loadChildren: () => import('../characters/characters.module').then( m => m.CharactersPageModule)
-          }
+            {
+                path: 'episodes',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../episodes/episodes.module').then(m => m.EpisodesPageModule)
+                    },
+                    {
+                        path: ':id',
+                        loadChildren: () => import('../episodes-details/episode-details.module').then(m => m.EpisodeDetailsPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'characters',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../characters/characters.module').then(m => m.CharactersPageModule)
+                    },
+                    {
+                        path: ':id',
+                        loadChildren: () => import('../characters-details/character-details.module').then(m => m.CharacterDetailsPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'quotes',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../quotes/quotes.module').then(m => m.QuotesPageModule)
+                    },
+                    {
+                        path: ':id',
+                        loadChildren: () => import('../quotes-details/quote-details.module').then(m => m.QuoteDetailsPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'deaths',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../deaths/death.module').then(m => m.DeathPageModule)
+                    }
+                ]
+            }
         ]
-      },
-      {
-        path: 'episodes',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../episodes/episodes.module').then( m => m.EpisodesPageModule)
-          },
-          {
-            path: ':id',
-            loadChildren: () => import('../episodes/episodes.module').then( m => m.EpisodesPageModule)
-          }
-        ]
-      },
-      
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/episodes',
-    pathMatch: 'full'
-  }
+    },
+    {
+        path: '',
+        redirectTo: '/tabs/episodes',
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({
