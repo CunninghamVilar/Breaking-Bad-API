@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-@Injectable({
-    providedIn: 'root'
-})
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiService {
+ 
+//   constructor(private http: HttpClient) { }
+//     getQuotes(): any {
+//         throw new Error("Method not implemented.");
+//     }
+    
     constructor(private http: HttpClient) { }
 
     //getEpisodes() 
@@ -23,15 +30,17 @@ export class ApiService {
     getEpisode(id) {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/episode.json`)
     }
+
     //getCharacters() 
     //{
-    //return this.http.get(`https://www.breakingbadapi.com/api/characters`)
+    //eturn this.http.get(`https://www.breakingbadapi.com/api/characters`)
     //}
 
     //getCharacter(id) 
     //{
     //return this.http.get(`https://breakingbadapi.com/api/characters/${id}`)
     //}
+
     getCharacters() {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/characters.json`)
     }
@@ -40,7 +49,8 @@ export class ApiService {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/character.json`)
     }
 
-    getQuotess() {
+
+    getQuotes() {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/quotes.json`)
     }
 

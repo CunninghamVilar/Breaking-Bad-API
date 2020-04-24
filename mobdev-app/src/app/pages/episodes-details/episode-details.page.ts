@@ -8,8 +8,11 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./episode-details.page.scss'],
 })
 export class EpisodeDetailsPage implements OnInit {
+
     episode: any;
     episodeId = null;
+
+    
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
     
     ngOnInit() {

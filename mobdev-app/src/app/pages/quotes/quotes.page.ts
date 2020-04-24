@@ -10,11 +10,15 @@ import { ApiService } from '../../services/api.service';
 })
 export class QuotesPage implements OnInit {
 
-    quotes: Observable<any>;
+    episode: any;
+    episodeId = null;
+    quote: any;
+    quotes: any;
+
     constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-        this.quotes = this.api.getQuotess();
+        this.quote = this.api.getQuotes();
         this.quotes.subscribe(data => {
             console.log('my data: ', data);
         });
