@@ -23,8 +23,6 @@ export class ApiService {
     getEpisode(id) {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/episode.json`)
     }
-
-
     //getCharacters() 
     //{
     //return this.http.get(`https://www.breakingbadapi.com/api/characters`)
@@ -42,14 +40,23 @@ export class ApiService {
         return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/character.json`)
     }
 
-
-    findQuote(search: any) {
-
-        return this.http.get(`http://breakingbadapi.com/api/quote?author=${search}`).pipe(new Map( quote => {
-            return quote;
-        })
-        
+    getQuotess() {
+        return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/quotes.json`)
     }
+
+    getQuote(id) {
+        return this.http.get(`https://4200-f239c721-da99-478a-bc62-a24f9b2a0a06.ws-eu01.gitpod.io/assets/quote.json`)
+    }
+
+
+
+    //findQuote(search: any) {
+
+        //return this.http.get(`http://breakingbadapi.com/api/quote?author=${search}`).pipe(new Map( quote => {
+            //return quote;
+        //})
+        
+    //}
 
 }
 
