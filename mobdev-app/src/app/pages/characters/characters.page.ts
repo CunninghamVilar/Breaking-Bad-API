@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 })
 
 export class charactersPage implements OnInit {
+
     characters: Observable<any>;
     
     constructor(private router: Router, private api: ApiService) { }
@@ -22,7 +23,7 @@ export class charactersPage implements OnInit {
     }
 
     openDetails(character) {
-        let characterId = character.character_id;
+        let characterId = character.char_id;
         this.router.navigateByUrl(`/tabs/characters/${characterId}`);
     }
 }

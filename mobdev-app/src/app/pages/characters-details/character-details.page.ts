@@ -8,11 +8,13 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./character-details.page.scss'],
 })
 export class CharacterDetailsPage implements OnInit {
-    episode: any;
-    episodeId = null;
-    characterId: string;
+
     character: any;
+    characterId = null;
+    
+    
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
+
     ngOnInit() {
         this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
         this.api.getCharacter(this.characterId).subscribe(res => {
