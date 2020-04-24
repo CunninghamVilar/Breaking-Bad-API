@@ -1,16 +1,16 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
-    provideIn: `root`
+  providedIn: 'root'
 })
-
 export class ApiService {
-    getQuotes(): any {
-        throw new Error("Method not implemented.");
-    }
+ 
+//   constructor(private http: HttpClient) { }
+//     getQuotes(): any {
+//         throw new Error("Method not implemented.");
+//     }
     
     constructor(private http: HttpClient) { }
 
