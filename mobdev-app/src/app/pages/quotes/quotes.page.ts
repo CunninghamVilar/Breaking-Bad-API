@@ -1,31 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-quotes',
-  templateUrl: './quotes.page.html',
-  styleUrls: ['./quotes.page.scss'],
+    selector: 'app-quotes',
+    templateUrl: './quotes.page.html',
+    styleUrls: ['./quotes.page.scss'],
 })
+
 export class QuotesPage implements OnInit {
 
-    episode: any;
-    episodeId = null;
+    //quote: any;
+    quoteId = null;
     quote: any;
     quotes: any;
 
+    
+
     constructor(private router: Router, private api: ApiService) { }
 
-  ngOnInit() {
+    ngOnInit() {
         this.quote = this.api.getQuotes();
-        this.quotes.subscribe(data => {
+        this.quotes.subscribe((data: any) => {
             console.log('my data: ', data);
         });
     }
-    openDetails(quote) {
+    openDetails(quote: { quote_id: any; }) {
         let quoteId = quote.quote_id;
-        this.router.navigateByUrl(`/tabs/quotes/${quote}`);
+        this.router.navigateByUrl(`/tabs/quotes/${quoteId}`);
     }
 
 }
